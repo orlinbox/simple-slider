@@ -18,18 +18,29 @@
       } else { el.addClass('js-ss-sl'); }
     });
   }
-  function simslNext(arr) {
+  function simslNext(arr, pos) {
+    pos[0]++;
     arr.push(arr.shift());
     simsl(arr);
   }
-  function simslPrev(arr) {
+  function simslPrev(arr, pos) {
+    pos[0]--;
     arr.unshift(arr.pop());
     simsl(arr);
+  }
+  function simslCustom(arr, pos, len, goto) {
+    var moveBy = goto - Math.abs(pos%len);
+    if (moveBy < 0) moveBy = goto + len;
+    while(moveBy > 0) {
+      simslNext(arr, pos);
+      moveBy--;
+    }
   }
   // sliders
   $('.js-simple-slider').each(function() {
     var ss = $('.js-ss', this);
     var elm = $('.js-ss li', this);
+    var pos = [0];
     var arr = [];
     elm.each(function() { arr.push($(this)); });
     // clone (for placeholder purposes)
@@ -37,13 +48,15 @@
     ss.clone().removeClass('js-ss').addClass('js-ss-placeholder').attr('aria-hidden', true).insertAfter(ss);
     // init
     simsl(arr);
+    // custom move
+    simslCustom(arr, pos, elm.length, 1);
     // click / keyboard (enter key)
-    $('.js-ss-next', this).click(function() { simslNext(arr); }).on('keydown', function(e) { if (e.which == 13) { simslNext(arr); } });
-    $('.js-ss-prev', this).click(function() { simslPrev(arr); }).on('keydown', function(e) { if (e.which == 13) { simslPrev(arr); } });
+    $('.js-ss-next', this).click(function() { simslNext(arr, pos); }).on('keydown', function(e) { if (e.which == 13) { simslNext(arr, pos); } });
+    $('.js-ss-prev', this).click(function() { simslPrev(arr, pos); }).on('keydown', function(e) { if (e.which == 13) { simslPrev(arr, pos); } });
     // keyboard (left and right arrow keys)
     $('body').on('keydown', function(e) {
-      if (e.which == 39) { simslNext(arr); }
-      if (e.which == 37) { simslPrev(arr); }
+      if (e.which == 39) { simslNext(arr, pos); }
+      if (e.which == 37) { simslPrev(arr, pos); }
     });
     // swipe (on touch devices)
     ss[0].addEventListener('touchstart', handleTouchStart, false);
@@ -62,7 +75,7 @@
       var swipeThreshold = 25; // px
       var swipeTimeout = 500; // ms
       if (Math.abs(xDiff) > swipeThreshold && (Date.now() - timeDown) < swipeTimeout) {
-        if (xDiff > 0) { simslNext(arr); } else { simslPrev(arr); }
+        if (xDiff > 0) { simslNext(arr, pos); } else { simslPrev(arr, pos); }
       }
     }
   });
