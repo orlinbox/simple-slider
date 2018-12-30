@@ -1,14 +1,61 @@
+/* Config ------------------------------------------------------------------- */
+.js-simple-slider .js-ss,
+.js-simple-slider .js-ss-placeholder {
+  max-width: 33.33%;
+}
+
+.js-simple-slider .js-ss li {
+  transition: opacity 0.5s, left 1s;
+}
+
+.js-simple-slider .js-ss .js-ss-sl {
+  opacity: 0;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-current {
+  opacity: 1;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-left,
+.js-simple-slider .js-ss .js-ss-sl-right {
+  opacity: 0.5;
+}
+
+.js-simple-slider .js-ss img {
+  transition: all 1s;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-left img,
+.js-simple-slider .js-ss .js-ss-sl-right img {
+  transform: scale(0.5);
+}
+
+.js-simple-slider .js-ss .js-ss-sl-left {
+  left: -75%;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-right {
+  left: 75%;
+}
+
+/* Simple slider ------------------------------------------------------------ */
 .js-simple-slider {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
 
+.js-simple-slider img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
 .js-simple-slider .js-ss,
 .js-simple-slider .js-ss-placeholder {
   display: inline-block;
   width: 100%;
-  /* put max-width here */
   padding: 0;
   margin: 0;
 }
@@ -38,35 +85,23 @@
 }
 
 .js-simple-slider .js-ss li {
-  transition: all 1s;
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
 }
 
+.js-simple-slider .js-ss .js-ss-sl-left,
+.js-simple-slider .js-ss .js-ss-sl-right {
+  z-index: 2;
+}
+
 .js-simple-slider .js-ss .js-ss-sl {
-  opacity: 0;
   z-index: 1;
 }
 
 .js-simple-slider .js-ss .js-ss-sl-current {
-  opacity: 1;
   z-index: 3;
-}
-
-.js-simple-slider .js-ss .js-ss-sl-left,
-.js-simple-slider .js-ss .js-ss-sl-right {
-  opacity: 0.5;
-  z-index: 2;
-}
-
-.js-simple-slider .js-ss .js-ss-sl-left {
-  left: -100%;
-}
-
-.js-simple-slider .js-ss .js-ss-sl-right {
-  left: 100%;
 }
 
 .js-simple-slider .js-ss-wrap {

@@ -2,25 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SS</title>
+  <title>Simple Slider</title>
   <link rel="stylesheet" href="simple-slider.css">
   <style>
+    html { height: 100%; }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100%;
+      margin: 0;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIBAMAAAA2IaO4AAAAD1BMVEUnJyceHh4vLy8rKysxMTFAKBbFAAAALUlEQVQI12NgEmJmYHA0VGBmEDAQYmEwYGBUZGBgMBJicGBWZGQQMRIyAosAADWPAqpWitOAAAAAAElFTkSuQmCC');
+    }
     .js-simple-slider .js-ss,
     .js-simple-slider .js-ss-placeholder {
-      max-width: 25%;
+      max-width: 800px;
+    }
+    .js-simple-slider {
+      display: inline-block;
+      vertical-align: middle;
     }
   </style>
 </head>
 <body>
   <div class="js-simple-slider">
     <ul class="js-ss">
-      <li>Slide content 1</li>
-      <li>Slide content 2</li>
-      <li>Slide content 3</li>
-      <li>Slide content 4</li>
+      <li><img src="img/ss1.jpg" alt=""></li>
+      <li><img src="img/ss2.jpg" alt=""></li>
+      <li><img src="img/ss3.jpg" alt=""></li>
+      <li><img src="img/ss4.jpg" alt=""></li>
+      <li><img src="img/ss5.jpg" alt=""></li>
     </ul>
-    <div class="js-ss-prev" tabindex="0" aria-label="Previous slide">Prev</div>
-    <div class="js-ss-next" tabindex="0" aria-label="Next slide">Next</div>
+    <div class="js-ss-prev" tabindex="0" aria-label="Previous slide">&lt;</div>
+    <div class="js-ss-next" tabindex="0" aria-label="Next slide">&gt;</div>
   </div>
   <script src="jquery-3.3.1.min.js"></script>
   <script src="simple-slider.js"></script>
