@@ -1,0 +1,75 @@
+.js-simple-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.js-simple-slider .js-ss,
+.js-simple-slider .js-ss-placeholder {
+  display: inline-block;
+  width: 100%;
+  /* put max-width here */
+  padding: 0;
+  margin: 0;
+}
+
+.js-simple-slider .js-ss li,
+.js-simple-slider .js-ss-placeholder li {
+  width: 100%;
+  list-style: none;
+}
+
+.js-simple-slider .js-ss-placeholder {
+  position: relative;
+  white-space: nowrap;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.js-simple-slider .js-ss-placeholder li {
+  display: inline-block;
+  white-space: normal;
+}
+
+.js-simple-slider .js-ss {
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+.js-simple-slider .js-ss li {
+  transition: all 1s;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.js-simple-slider .js-ss .js-ss-sl {
+  opacity: 0;
+  z-index: 1;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-current {
+  opacity: 1;
+  z-index: 3;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-left,
+.js-simple-slider .js-ss .js-ss-sl-right {
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-left {
+  left: -100%;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-right {
+  left: 100%;
+}
+
+.js-simple-slider .js-ss-wrap {
+  position: relative;
+  text-align: center;
+}
