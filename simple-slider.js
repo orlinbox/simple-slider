@@ -59,7 +59,7 @@
     function handleTouchMove(e) { xDiff = xDown - e.touches[0].clientX; }
     function handleTouchEnd(e) {
       if (startEl !== e.target) return;
-      var swipeThreshold = 30; // px
+      var swipeThreshold = 25; // px
       var swipeTimeout = 500; // ms
       if (Math.abs(xDiff) > swipeThreshold && (Date.now() - timeDown) < swipeTimeout) {
         if (xDiff > 0) { simslNext(arr); } else { simslPrev(arr); }
