@@ -32,7 +32,7 @@
     simsl(arr);
   }
   function simslCustom(arr, pos, len, goto) {
-    var moveBy = goto - Math.abs(pos[0]%len);
+    var moveBy = goto - Math.abs(pos[0])%len;
     if (moveBy < 0) moveBy = moveBy + len;
     while(moveBy-- > 0) { simslNext(arr, pos); }
   }
