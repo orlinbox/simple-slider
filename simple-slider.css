@@ -38,6 +38,21 @@
   left: 75%;
 }
 
+/* Styles ------------------------------------------------------------------- */
+.js-ss-nav {
+  text-align: center;
+}
+
+.js-ss-nav li {
+  list-style: none;
+  display: inline-block;
+  padding: 1rem;
+}
+
+.js-ss-nav li.active {
+  color: #fff;
+}
+
 /* Simple slider ------------------------------------------------------------ */
 .js-simple-slider {
   position: relative;

@@ -18,6 +18,9 @@
       } else if (index === (len - 1)) { el.addClass('js-ss-sl-left');
       } else { el.addClass('js-ss-sl'); }
     });
+    var actEl = $('.js-ss-sl-current');
+    var dotsEl = $('.js-ss-nav li', actEl.parents('.js-simple-slider')).removeAttr('class');
+    dotsEl.eq(actEl.attr('data-ss-index')).addClass('active');
   }
   function simslNext(arr, pos) {
     pos[0]++;
@@ -30,8 +33,8 @@
     simsl(arr);
   }
   function simslCustom(arr, pos, len, goto) {
-    var moveBy = goto - Math.abs(pos%len);
-    if (moveBy < 0) moveBy = goto + len;
+    var moveBy = goto - Math.abs(pos[0]%len);
+    if (moveBy < 0) moveBy = moveBy + len;
     while(moveBy > 0) {
       simslNext(arr, pos);
       moveBy--;
@@ -46,8 +49,8 @@
     var dots = $('.js-ss-nav');
     var i = 0;
     elm.each(function() {
+      arr.push($(this).attr('data-ss-index', i));
       i++;
-      arr.push($(this));
       dots.append('<li>' + i + '</li>');
     });
     // clone (for placeholder purposes)

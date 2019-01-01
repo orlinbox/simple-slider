@@ -26,6 +26,22 @@
   }
 }
 
+/* Styles ------------------------------------------------------------------- */
+
+.js-ss-nav {
+  text-align: center;
+
+  li {
+    list-style: none;
+    display: inline-block;
+    padding: 1rem;
+
+    &.active {
+      color: #fff;
+    }
+  }
+}
+
 /* Simple slider ------------------------------------------------------------ */
 
 .js-simple-slider {
