@@ -14,8 +14,10 @@
     .js-ss-sl-right {
       opacity: 0.5;
     }
-
-    img { transition: all 1s; }
+    img {
+      transition: all 1s;
+      border-radius: 0.25rem;
+    }
     .js-ss-sl-left,
     .js-ss-sl-right {
       img { transform: scale(0.5); }
@@ -34,10 +36,15 @@
   li {
     list-style: none;
     display: inline-block;
-    padding: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0.25rem;
+    margin: 0.25rem;
+    border-radius: 0.25rem;
+    background-color: #000;
 
     &.active {
-      color: #fff;
+      background-color: #fff;
     }
   }
 }

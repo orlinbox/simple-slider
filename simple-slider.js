@@ -1,5 +1,4 @@
-(function() {
-  /*
+/*
   <div class="js-simple-slider">
     <ul class="js-ss">
       <li>Slide content</li>
@@ -8,9 +7,9 @@
     <div class="js-ss-prev" tabindex="0" aria-label="Previous slide">Prev</div>
     <div class="js-ss-next" tabindex="0" aria-label="Next slide">Next</div>
   </div>
-  */
+*/
+(function() {
   function simsl(arr) {
-    var len = arr.length;
     $.each(arr, function(index, el) {
       el.removeAttr('class').attr('aria-hidden', true);
       if (index === 0) {
@@ -18,7 +17,7 @@
         var dotsEl = $('.js-ss-nav li', el.parents('.js-simple-slider')).removeAttr('class');
         dotsEl.eq(el.attr('data-ss-index')).addClass('active');
       } else if (index === 1) { el.addClass('js-ss-sl-right');
-      } else if (index === (len - 1)) { el.addClass('js-ss-sl-left');
+      } else if (index === (arr.length - 1)) { el.addClass('js-ss-sl-left');
       } else { el.addClass('js-ss-sl'); }
     });
   }
@@ -35,10 +34,7 @@
   function simslCustom(arr, pos, len, goto) {
     var moveBy = goto - Math.abs(pos[0]%len);
     if (moveBy < 0) moveBy = moveBy + len;
-    while(moveBy > 0) {
-      simslNext(arr, pos);
-      moveBy--;
-    }
+    while(moveBy-- > 0) { simslNext(arr, pos); }
   }
   // sliders
   $('.js-simple-slider').each(function() {
@@ -49,22 +45,19 @@
     var dots = $('.js-ss-nav', this);
     var i = 0;
     elm.each(function() {
-      arr.push($(this).attr('data-ss-index', i));
-      i++;
-      dots.append('<li>' + i + '</li>');
+      arr.push($(this).attr('data-ss-index', i++));
+      dots.append('<li></li>');
     });
     // clone (for placeholder purposes)
     ss.wrap('<div class="js-ss-wrap"></div>');
     ss.clone().removeClass('js-ss').addClass('js-ss-placeholder').attr('aria-hidden', true).insertAfter(ss);
     // init
     simsl(arr);
-    // custom move
-    $('li', dots).each(function(index) {
-      $(this).click(function() { simslCustom(arr, pos, elm.length, index); });
-    });
     // click / keyboard (enter key)
     $('.js-ss-next', this).click(function() { simslNext(arr, pos); }).on('keydown', function(e) { if (e.which == 13) { simslNext(arr, pos); } });
     $('.js-ss-prev', this).click(function() { simslPrev(arr, pos); }).on('keydown', function(e) { if (e.which == 13) { simslPrev(arr, pos); } });
+    // click on dot
+    $('li', dots).each(function(index) { $(this).click(function() { simslCustom(arr, pos, elm.length, index); }); });
     // keyboard (left and right arrow keys)
     $('body').on('keydown', function(e) {
       if (e.which == 39) { simslNext(arr, pos); }

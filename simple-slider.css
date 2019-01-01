@@ -23,6 +23,7 @@
 
 .js-simple-slider .js-ss img {
   transition: all 1s;
+  border-radius: 0.25rem;
 }
 
 .js-simple-slider .js-ss .js-ss-sl-left img,
@@ -46,11 +47,16 @@
 .js-ss-nav li {
   list-style: none;
   display: inline-block;
-  padding: 1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0.25rem;
+  margin: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: #000;
 }
 
 .js-ss-nav li.active {
-  color: #fff;
+  background-color: #fff;
 }
 
 /* Simple slider ------------------------------------------------------------ */
