@@ -13,14 +13,14 @@
     var len = arr.length;
     $.each(arr, function(index, el) {
       el.removeAttr('class').attr('aria-hidden', true);
-      if (index === 0) { el.addClass('js-ss-sl-current').removeAttr('aria-hidden');
+      if (index === 0) {
+        el.addClass('js-ss-sl-current').removeAttr('aria-hidden');
+        var dotsEl = $('.js-ss-nav li', el.parents('.js-simple-slider')).removeAttr('class');
+        dotsEl.eq(el.attr('data-ss-index')).addClass('active');
       } else if (index === 1) { el.addClass('js-ss-sl-right');
       } else if (index === (len - 1)) { el.addClass('js-ss-sl-left');
       } else { el.addClass('js-ss-sl'); }
     });
-    var actEl = $('.js-ss-sl-current');
-    var dotsEl = $('.js-ss-nav li', actEl.parents('.js-simple-slider')).removeAttr('class');
-    dotsEl.eq(actEl.attr('data-ss-index')).addClass('active');
   }
   function simslNext(arr, pos) {
     pos[0]++;
@@ -46,7 +46,7 @@
     var elm = $('.js-ss li', this);
     var pos = [0];
     var arr = [];
-    var dots = $('.js-ss-nav');
+    var dots = $('.js-ss-nav', this);
     var i = 0;
     elm.each(function() {
       arr.push($(this).attr('data-ss-index', i));
