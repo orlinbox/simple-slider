@@ -4,6 +4,7 @@
     <ul class="js-ss">
       <li>Slide content</li>
     </ul>
+    <ul class="js-ss-nav"></ul>
     <div class="js-ss-prev" tabindex="0" aria-label="Previous slide">Prev</div>
     <div class="js-ss-next" tabindex="0" aria-label="Next slide">Next</div>
   </div>
@@ -42,14 +43,22 @@
     var elm = $('.js-ss li', this);
     var pos = [0];
     var arr = [];
-    elm.each(function() { arr.push($(this)); });
+    var dots = $('.js-ss-nav');
+    var i = 0;
+    elm.each(function() {
+      i++;
+      arr.push($(this));
+      dots.append('<li>' + i + '</li>');
+    });
     // clone (for placeholder purposes)
     ss.wrap('<div class="js-ss-wrap"></div>');
     ss.clone().removeClass('js-ss').addClass('js-ss-placeholder').attr('aria-hidden', true).insertAfter(ss);
     // init
     simsl(arr);
     // custom move
-    simslCustom(arr, pos, elm.length, 1);
+    $('li', dots).each(function(index) {
+      $(this).click(function() { simslCustom(arr, pos, elm.length, index); });
+    });
     // click / keyboard (enter key)
     $('.js-ss-next', this).click(function() { simslNext(arr, pos); }).on('keydown', function(e) { if (e.which == 13) { simslNext(arr, pos); } });
     $('.js-ss-prev', this).click(function() { simslPrev(arr, pos); }).on('keydown', function(e) { if (e.which == 13) { simslPrev(arr, pos); } });
