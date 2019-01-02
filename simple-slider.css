@@ -99,8 +99,11 @@
 }
 
 .js-simple-slider .js-ss {
-  height: 100%;
   position: absolute;
+  top: 0;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
 }
 

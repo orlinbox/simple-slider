@@ -33,11 +33,9 @@
   }
   function simslCustom(arr, pos, len, goto) {
     var moveBy = goto - pos[0]%len;
-    if (moveBy < 0) {
-      while(moveBy++ < 0) { simslPrev(arr, pos); }
-    } else if (moveBy > 0) {
-      while(moveBy-- > 0) { simslNext(arr, pos); }
-    }
+    if (moveBy < 0) moveBy = moveBy + len;
+    if (moveBy > len) moveBy = moveBy - len;
+    while(moveBy-- > 0) { simslNext(arr, pos); }
   }
   // sliders
   $('.js-simple-slider').each(function() {
