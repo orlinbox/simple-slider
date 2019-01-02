@@ -1,7 +1,8 @@
 /* Config ------------------------------------------------------------------- */
-.js-simple-slider .js-ss,
-.js-simple-slider .js-ss-placeholder {
-  max-width: 33.33%;
+body .js-simple-slider .js-ss,
+body .js-simple-slider .js-ss-placeholder {
+  max-width: 75%;
+  width: 800px;
 }
 
 .js-simple-slider .js-ss li {
@@ -12,22 +13,19 @@
   opacity: 0;
 }
 
+.js-simple-slider .js-ss .js-ss-sl-left, .js-simple-slider .js-ss .js-ss-sl-right {
+  opacity: 0.5;
+}
+
 .js-simple-slider .js-ss .js-ss-sl-current {
   opacity: 1;
 }
 
-.js-simple-slider .js-ss .js-ss-sl-left,
-.js-simple-slider .js-ss .js-ss-sl-right {
-  opacity: 0.5;
-}
-
 .js-simple-slider .js-ss img {
   transition: all 1s;
-  border-radius: 0.25rem;
 }
 
-.js-simple-slider .js-ss .js-ss-sl-left img,
-.js-simple-slider .js-ss .js-ss-sl-right img {
+.js-simple-slider .js-ss .js-ss-sl-left img, .js-simple-slider .js-ss .js-ss-sl-right img {
   transform: scale(0.5);
 }
 
@@ -41,6 +39,9 @@
 
 /* Styles ------------------------------------------------------------------- */
 .js-ss-nav {
+  height: 1.5rem;
+  margin: 1rem;
+  padding: 0;
   text-align: center;
 }
 
@@ -51,12 +52,30 @@
   height: 0.5rem;
   padding: 0.25rem;
   margin: 0.25rem;
-  border-radius: 0.25rem;
   background-color: #000;
 }
 
 .js-ss-nav li.active {
   background-color: #fff;
+}
+
+.js-ss-prev,
+.js-ss-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  z-index: 4;
+}
+
+.js-ss-prev {
+  left: 0;
+}
+
+.js-ss-next {
+  right: 0;
 }
 
 /* Simple slider ------------------------------------------------------------ */

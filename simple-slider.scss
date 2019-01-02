@@ -1,27 +1,23 @@
 /* Config ------------------------------------------------------------------- */
 
-.js-simple-slider {
+body .js-simple-slider {
   .js-ss,
   .js-ss-placeholder {
-    max-width: 33.33%;
+    max-width: 75%;
+    width: 800px;
   }
+}
 
+.js-simple-slider {
   .js-ss {
     li { transition: opacity 0.5s, left 1s; }
+
     .js-ss-sl { opacity: 0; }
+    .js-ss-sl-left, .js-ss-sl-right { opacity: 0.5; }
     .js-ss-sl-current { opacity: 1; }
-    .js-ss-sl-left,
-    .js-ss-sl-right {
-      opacity: 0.5;
-    }
-    img {
-      transition: all 1s;
-      border-radius: 0.25rem;
-    }
-    .js-ss-sl-left,
-    .js-ss-sl-right {
-      img { transform: scale(0.5); }
-    }
+
+    img { transition: all 1s; }
+    .js-ss-sl-left, .js-ss-sl-right { img { transform: scale(0.5); } }
 
     .js-ss-sl-left { left: -75%; }
     .js-ss-sl-right { left: 75%; }
@@ -31,6 +27,9 @@
 /* Styles ------------------------------------------------------------------- */
 
 .js-ss-nav {
+  height: 1.5rem;
+  margin: 1rem;
+  padding: 0;
   text-align: center;
 
   li {
@@ -40,7 +39,6 @@
     height: 0.5rem;
     padding: 0.25rem;
     margin: 0.25rem;
-    border-radius: 0.25rem;
     background-color: #000;
 
     &.active {
@@ -48,6 +46,20 @@
     }
   }
 }
+
+.js-ss-prev,
+.js-ss-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  z-index: 4;
+}
+
+.js-ss-prev { left: 0; }
+.js-ss-next { right: 0; }
 
 /* Simple slider ------------------------------------------------------------ */
 
