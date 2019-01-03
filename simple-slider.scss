@@ -79,6 +79,12 @@
 .js-ss-prev { left: 0; }
 .js-ss-next { right: 0; }
 
+.js-ss-sl,
+.js-ss-sl-left,
+.js-ss-sl-right {
+  filter: grayscale(100%);
+}
+
 /* Config ------------------------------------------------------------------- */
 
 body .js-simple-slider {
