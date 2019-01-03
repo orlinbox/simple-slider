@@ -1,0 +1,8 @@
+{
+  "short_name": "Slider",
+  "name": "Simple Slider",
+  "start_url": "/maps/?source=pwa",
+  "background_color": "#000000",
+  "display": "fullscreen",
+  "theme_color": "#000000"
+}
