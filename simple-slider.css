@@ -6,7 +6,7 @@ body .js-simple-slider .js-ss-placeholder {
 }
 
 .js-simple-slider .js-ss li {
-  transition: opacity 0.5s, left 1s;
+  transition: all 0.5s;
 }
 
 .js-simple-slider .js-ss .js-ss-sl {
