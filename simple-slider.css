@@ -1,42 +1,3 @@
-/* Config ------------------------------------------------------------------- */
-body .js-simple-slider .js-ss,
-body .js-simple-slider .js-ss-placeholder {
-  max-width: 75%;
-  width: 800px;
-}
-
-.js-simple-slider .js-ss li {
-  transition: all 0.5s;
-}
-
-.js-simple-slider .js-ss .js-ss-sl {
-  opacity: 0;
-}
-
-.js-simple-slider .js-ss .js-ss-sl-left, .js-simple-slider .js-ss .js-ss-sl-right {
-  opacity: 0.5;
-}
-
-.js-simple-slider .js-ss .js-ss-sl-current {
-  opacity: 1;
-}
-
-.js-simple-slider .js-ss img {
-  transition: all 1s;
-}
-
-.js-simple-slider .js-ss .js-ss-sl-left img, .js-simple-slider .js-ss .js-ss-sl-right img {
-  transform: scale(0.5);
-}
-
-.js-simple-slider .js-ss .js-ss-sl-left {
-  left: -75%;
-}
-
-.js-simple-slider .js-ss .js-ss-sl-right {
-  left: 75%;
-}
-
 /* Styles ------------------------------------------------------------------- */
 .js-ss-nav {
   height: 1.5rem;
@@ -76,6 +37,45 @@ body .js-simple-slider .js-ss-placeholder {
 
 .js-ss-next {
   right: 0;
+}
+
+/* Config ------------------------------------------------------------------- */
+body .js-simple-slider .js-ss,
+body .js-simple-slider .js-ss-placeholder {
+  max-width: 75%;
+  width: 800px;
+}
+
+.js-simple-slider .js-ss li {
+  transition: all 0.5s;
+}
+
+.js-simple-slider .js-ss .js-ss-sl {
+  opacity: 0;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-left, .js-simple-slider .js-ss .js-ss-sl-right {
+  opacity: 0.5;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-current {
+  opacity: 1;
+}
+
+.js-simple-slider .js-ss img {
+  transition: all 1s;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-left img, .js-simple-slider .js-ss .js-ss-sl-right img {
+  transform: scale(0.5);
+}
+
+.js-simple-slider .js-ss .js-ss-sl-left {
+  left: -75%;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-right {
+  left: 75%;
 }
 
 /* Simple slider ------------------------------------------------------------ */
