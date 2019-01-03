@@ -6,6 +6,7 @@
   text-align: center;
 
   li {
+    transition: all 0.33s;
     position: relative;
     list-style: none;
     display: inline-block;
@@ -30,7 +31,18 @@
       width: 100%;
       height: 100%;
       border-radius: 5px;
-      background: rgba(0,0,0,0.4);
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    &:before {
+      position: absolute;
+      display: block;
+      content: " ";
+      left: -0.2rem;
+      right: -0.2rem;
+      top: -0.2rem;
+      bottom: -0.2rem;
+      background-color: transparent;
     }
   }
 }
