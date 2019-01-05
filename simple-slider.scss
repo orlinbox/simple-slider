@@ -134,7 +134,7 @@
 @media only screen and (min-width: 521px) {
   .js-ss-prev,
   .js-ss-next {
-    width: 40%;
+    width: 27.5%;
   }
 }
 
@@ -145,7 +145,8 @@
 
   .js-ss-prev,
   .js-ss-next {
-    bottom: 62px;
+    width: 40%;
+    bottom: 50%;
 
     &:after {
       font-size: 2rem;
