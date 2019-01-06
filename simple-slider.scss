@@ -1,33 +1,111 @@
-/* Styles ------------------------------------------------------------------- */
+/* Navigation styles -------------------------------------------------------- */
+
+$ss-black: rgba(0,0,0, 0.66);
+$ss-white: rgba(255,255,255, 0.33);
+
+.js-ss-prev,
+.js-ss-next {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 24px;
+  vertical-align: middle;
+  cursor: pointer;
+
+  &:after {
+    transition: all 0.25s;
+    position: absolute;
+    display: block;
+    content: " ";
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  &:active, &:focus {
+    outline-width: 0;
+  }
+}
+
+.js-ss-prev {
+  left: 0;
+
+  &:after {
+    border-width: 8px 16px 8px 0;
+    border-color: transparent $ss-black transparent transparent;
+  }
+
+  &:hover:after { border-color: transparent $ss-white transparent transparent; }
+}
+
+.js-ss-next {
+  right: 0;
+
+  &:after {
+    border-width: 8px 0 8px 16px;
+    border-color: transparent transparent transparent $ss-black;
+  }
+
+  &:hover:after { border-color: transparent transparent transparent $ss-white; }
+}
+
+.ss-keyboard {
+  .js-ss-prev,
+  .js-ss-next {
+    &:active,
+    &:focus {
+      outline: 2px dotted $ss-white;
+      outline-offset: 1px;
+    }
+  }
+
+  .js-ss-prev {
+    &:active, &:focus {
+      &:after {
+        border-color: transparent $ss-white transparent transparent;
+      }
+    }
+  }
+
+  .js-ss-next {
+    &:active, &:focus {
+      &:after {
+        border-color: transparent transparent transparent $ss-white;
+      }
+    }
+  }
+}
 
 .js-ss-nav {
-  margin-top: 0.5rem;
-  padding: 0;
+  display: inline-block;
+  margin: 0;
+  padding: 10px;
+  line-height: 0;
+  vertical-align: middle;
   text-align: center;
 
   li {
-    transition: all 0.33s;
+    transition: all 0.25s;
     position: relative;
-    list-style: none;
     display: inline-block;
-    width: 0.6rem;
-    height: 0.4rem;
-    padding: 0.25rem;
-    margin: 0.25rem;
+    width: 10px;
+    height: 7px;
+    padding: 4px;
+    margin: 4px;
+    list-style: none;
     border-radius: 5px;
     vertical-align: middle;
     cursor: pointer;
 
-    &:hover {
-      &:after {
-        transition: all 0.33s;
-        opacity: 1;
-      }
+    &:hover:after {
+      transition: all 0.25s;
+      background-color: $ss-white;
     }
 
-    &.active {
-      background-color: rgba(255,255,255,0.6);
-    }
+    &.active:after { background-color: $ss-white; }
 
     &:after {
       position: absolute;
@@ -38,132 +116,55 @@
       width: 100%;
       height: 100%;
       border-radius: 5px;
-      background-color: #fff;
-      opacity: 0.4;
-    }
-
-    &:before {
-      position: absolute;
-      display: block;
-      content: " ";
-      left: -0.2rem;
-      right: -0.2rem;
-      top: -0.2rem;
-      bottom: -0.2rem;
-      background-color: transparent;
-    }
-  }
-}
-
-.js-ss-sl,
-.js-ss-sl-left,
-.js-ss-sl-right {
-  filter: grayscale(100%);
-}
-
-.js-ss-prev,
-.js-ss-next {
-  position: absolute;
-  top: 16px;
-  bottom: 42px;
-  width: 10%;
-  /* background-color: rgba(white, 0.5); */
-  outline: 1px dotted red;
-  outline-offset: -2px;
-  z-index: 4;
-
-  &:before,
-  &:after {
-    position: absolute;
-    display: block;
-    content: " ";
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  &:before {
-    transition: all 0.33s;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    opacity: 0.33;
-  }
-
-  &:after {
-    width: 2rem;
-    height: 2rem;
-    color: #fff;
-    text-align: center;
-    line-height: 2rem;
-    outline: 1px dotted green;
-    outline-offset: -2px;
-  }
-
-  &:active,
-  &:focus {
-    &:after {
-      outline: 1px dotted white;
-      outline-offset: -2px;
-    }
-
-    &:before {
-      opacity: 1;
-    }
-  }
-}
-
-.js-ss-prev {
-  left: 0;
-
-  &:before {
-    border-width: 10px 20px 10px 0;
-    border-color: transparent  #fff transparent transparent;
-  }
-}
-
-.js-ss-next {
-  right: 0;
-
-  &:before {
-    border-width: 10px 0 10px 20px;
-    border-color: transparent transparent transparent #fff;
-  }
-}
-
-@media only screen and (min-width: 521px) {
-  .js-ss-prev,
-  .js-ss-next {
-    width: 27.5%;
-  }
-}
-
-@media only screen and (min-width: 900px) {
-  .js-ss-nav {
-    margin-top: 1.5rem;
-  }
-
-  .js-ss-prev,
-  .js-ss-next {
-    width: 40%;
-    bottom: 50%;
-
-    &:after {
-      font-size: 2rem;
+      background-color: $ss-black;
     }
   }
 }
 
 @media only screen and (max-width: 899px) {
   .js-ss-nav {
+    padding: 6px;
+
     li {
-      width: 0.3rem;
-      height: 0.2rem;
-      padding: 0.125rem;
-      margin: 0.125rem;
+      width: 6px;
+      height: 4px;
+      padding: 2px;
+      margin: 2px;
       border-radius: 3px;
     }
   }
+
+  .js-ss-prev, .js-ss-next {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .js-ss-nav {
+    max-width: 75%;
+
+    li:before {
+      position: absolute;
+      display: block;
+      content: " ";
+      left: -2px;
+      right: -2px;
+      top: -2px;
+      bottom: -2px;
+      background-color: transparent;
+    }
+  }
+}
+
+.ss-nav-wrap {
+  max-width: 45%;
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media only screen and (max-width: 520px) {
+  .ss-nav-wrap { max-width: 80%; }
 }
 
 /* Config ------------------------------------------------------------------- */
@@ -171,36 +172,47 @@
 body .js-simple-slider {
   .js-ss,
   .js-ss-placeholder {
-    max-width: 80%;
+    max-width: 45%;
     width: 800px;
   }
 }
 
-@media only screen and (min-width: 521px) {
+@media only screen and (max-width: 520px) {
   body .js-simple-slider {
     .js-ss,
     .js-ss-placeholder {
-      max-width: 45%;
+      max-width: 80%;
     }
   }
 }
 
 .js-simple-slider {
+  .js-ss-sl,
+  .js-ss-sl-left,
+  .js-ss-sl-right {
+    filter: grayscale(100%);
+  }
+
   .js-ss {
     li { transition: all 0.5s; }
 
     .js-ss-sl { opacity: 0; }
-    .js-ss-sl-left, .js-ss-sl-right { opacity: 0.33; }
+    .js-ss-sl-left, .js-ss-sl-right {
+      opacity: 0.25;
+      &:hover { opacity: 0.5; }
+    }
     .js-ss-sl-current { opacity: 1; }
 
     img {
       transition: all 1s;
-      border-radius: 25px;
+      border-radius: 20px;
     }
-    .js-ss-sl-left, .js-ss-sl-right {
+
+    .js-ss-sl-left,
+    .js-ss-sl-right {
       img {
         transform: scale(0.5);
-        border-radius: 50px;
+        border-radius: 40px;
       }
     }
 
@@ -212,7 +224,6 @@ body .js-simple-slider {
 /* Simple slider ------------------------------------------------------------ */
 
 .js-simple-slider {
-  position: relative;
   width: 100%;
   overflow: hidden;
 
@@ -263,11 +274,11 @@ body .js-simple-slider {
       transform: translateY(-50%);
     }
 
-    .js-ss-sl-left,
-    .js-ss-sl-right {
-      z-index: 2;
-    }
     .js-ss-sl { z-index: 1; }
+    .js-ss-sl-left, .js-ss-sl-right {
+      z-index: 2;
+      cursor: pointer;
+    }
     .js-ss-sl-current { z-index: 3; }
   }
 

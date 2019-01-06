@@ -4,9 +4,11 @@
       <li>Slide content</li>
     </ul>
     <!-- optional -->
-    <ul class="js-ss-nav" aria-hidden="true"></ul>
-    <div class="js-ss-prev" tabindex="0" aria-label="Previous slide">Prev</div>
-    <div class="js-ss-next" tabindex="0" aria-label="Next slide">Next</div>
+    <div class="ss-nav-wrap">
+      <div class="js-ss-prev" tabindex="0" aria-label="Previous slide">Prev</div>
+      <ul class="js-ss-nav" aria-hidden="true"></ul>
+      <div class="js-ss-next" tabindex="0" aria-label="Next slide">Next</div>
+    </div>
   </div>
 */
 (function() {
@@ -93,4 +95,10 @@
       }
     }
   });
+  // keyboard focus
+  function simslkey() {
+    $('.js-simple-slider').addClass('ss-keyboard');
+    $('body').off('keypress', simslkey);
+  }
+  $('body').on('keypress', simslkey);
 })();

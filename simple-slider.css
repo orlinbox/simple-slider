@@ -1,31 +1,105 @@
-/* Styles ------------------------------------------------------------------- */
+/* Navigation styles -------------------------------------------------------- */
+.js-ss-prev,
+.js-ss-next {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 24px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.js-ss-prev:after,
+.js-ss-next:after {
+  transition: all 0.25s;
+  position: absolute;
+  display: block;
+  content: " ";
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.js-ss-prev:active, .js-ss-prev:focus,
+.js-ss-next:active,
+.js-ss-next:focus {
+  outline-width: 0;
+}
+
+.js-ss-prev {
+  left: 0;
+}
+
+.js-ss-prev:after {
+  border-width: 8px 16px 8px 0;
+  border-color: transparent rgba(0, 0, 0, 0.66) transparent transparent;
+}
+
+.js-ss-prev:hover:after {
+  border-color: transparent rgba(255, 255, 255, 0.33) transparent transparent;
+}
+
+.js-ss-next {
+  right: 0;
+}
+
+.js-ss-next:after {
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.66);
+}
+
+.js-ss-next:hover:after {
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.33);
+}
+
+.ss-keyboard .js-ss-prev:active, .ss-keyboard .js-ss-prev:focus,
+.ss-keyboard .js-ss-next:active,
+.ss-keyboard .js-ss-next:focus {
+  outline: 2px dotted rgba(255, 255, 255, 0.33);
+  outline-offset: 1px;
+}
+
+.ss-keyboard .js-ss-prev:active:after, .ss-keyboard .js-ss-prev:focus:after {
+  border-color: transparent rgba(255, 255, 255, 0.33) transparent transparent;
+}
+
+.ss-keyboard .js-ss-next:active:after, .ss-keyboard .js-ss-next:focus:after {
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.33);
+}
+
 .js-ss-nav {
-  margin-top: 0.5rem;
-  padding: 0;
+  display: inline-block;
+  margin: 0;
+  padding: 10px;
+  line-height: 0;
+  vertical-align: middle;
   text-align: center;
 }
 
 .js-ss-nav li {
-  transition: all 0.33s;
+  transition: all 0.25s;
   position: relative;
-  list-style: none;
   display: inline-block;
-  width: 0.6rem;
-  height: 0.4rem;
-  padding: 0.25rem;
-  margin: 0.25rem;
+  width: 10px;
+  height: 7px;
+  padding: 4px;
+  margin: 4px;
+  list-style: none;
   border-radius: 5px;
   vertical-align: middle;
   cursor: pointer;
 }
 
 .js-ss-nav li:hover:after {
-  transition: all 0.33s;
-  opacity: 1;
+  transition: all 0.25s;
+  background-color: rgba(255, 255, 255, 0.33);
 }
 
-.js-ss-nav li.active {
-  background-color: rgba(255, 255, 255, 0.6);
+.js-ss-nav li.active:after {
+  background-color: rgba(255, 255, 255, 0.33);
 }
 
 .js-ss-nav li:after {
@@ -37,145 +111,72 @@
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  background-color: #fff;
-  opacity: 0.4;
+  background-color: rgba(0, 0, 0, 0.66);
 }
 
-.js-ss-nav li:before {
-  position: absolute;
-  display: block;
-  content: " ";
-  left: -0.2rem;
-  right: -0.2rem;
-  top: -0.2rem;
-  bottom: -0.2rem;
-  background-color: transparent;
-}
-
-.js-ss-sl,
-.js-ss-sl-left,
-.js-ss-sl-right {
-  filter: grayscale(100%);
-}
-
-.js-ss-prev,
-.js-ss-next {
-  position: absolute;
-  top: 16px;
-  bottom: 42px;
-  width: 10%;
-  /* background-color: rgba(white, 0.5); */
-  outline: 1px dotted red;
-  outline-offset: -2px;
-  z-index: 4;
-}
-
-.js-ss-prev:before, .js-ss-prev:after,
-.js-ss-next:before,
-.js-ss-next:after {
-  position: absolute;
-  display: block;
-  content: " ";
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.js-ss-prev:before,
-.js-ss-next:before {
-  transition: all 0.33s;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  opacity: 0.33;
-}
-
-.js-ss-prev:after,
-.js-ss-next:after {
-  width: 2rem;
-  height: 2rem;
-  color: #fff;
-  text-align: center;
-  line-height: 2rem;
-  outline: 1px dotted green;
-  outline-offset: -2px;
-}
-
-.js-ss-prev:active:after, .js-ss-prev:focus:after,
-.js-ss-next:active:after,
-.js-ss-next:focus:after {
-  outline: 1px dotted white;
-  outline-offset: -2px;
-}
-
-.js-ss-prev:active:before, .js-ss-prev:focus:before,
-.js-ss-next:active:before,
-.js-ss-next:focus:before {
-  opacity: 1;
-}
-
-.js-ss-prev {
-  left: 0;
-}
-
-.js-ss-prev:before {
-  border-width: 10px 20px 10px 0;
-  border-color: transparent  #fff transparent transparent;
-}
-
-.js-ss-next {
-  right: 0;
-}
-
-.js-ss-next:before {
-  border-width: 10px 0 10px 20px;
-  border-color: transparent transparent transparent #fff;
-}
-
-@media only screen and (min-width: 521px) {
-  .js-ss-prev,
-  .js-ss-next {
-    width: 27.5%;
+@media only screen and (max-width: 899px) {
+  .js-ss-nav {
+    padding: 6px;
+  }
+  .js-ss-nav li {
+    width: 6px;
+    height: 4px;
+    padding: 2px;
+    margin: 2px;
+    border-radius: 3px;
+  }
+  .js-ss-prev, .js-ss-next {
+    display: none;
   }
 }
 
 @media only screen and (min-width: 900px) {
   .js-ss-nav {
-    margin-top: 1.5rem;
+    max-width: 75%;
   }
-  .js-ss-prev,
-  .js-ss-next {
-    width: 40%;
-    bottom: 50%;
-  }
-  .js-ss-prev:after,
-  .js-ss-next:after {
-    font-size: 2rem;
+  .js-ss-nav li:before {
+    position: absolute;
+    display: block;
+    content: " ";
+    left: -2px;
+    right: -2px;
+    top: -2px;
+    bottom: -2px;
+    background-color: transparent;
   }
 }
 
-@media only screen and (max-width: 899px) {
-  .js-ss-nav li {
-    width: 0.3rem;
-    height: 0.2rem;
-    padding: 0.125rem;
-    margin: 0.125rem;
-    border-radius: 3px;
+.ss-nav-wrap {
+  max-width: 45%;
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media only screen and (max-width: 520px) {
+  .ss-nav-wrap {
+    max-width: 80%;
   }
 }
 
 /* Config ------------------------------------------------------------------- */
 body .js-simple-slider .js-ss,
 body .js-simple-slider .js-ss-placeholder {
-  max-width: 80%;
+  max-width: 45%;
   width: 800px;
 }
 
-@media only screen and (min-width: 521px) {
+@media only screen and (max-width: 520px) {
   body .js-simple-slider .js-ss,
   body .js-simple-slider .js-ss-placeholder {
-    max-width: 45%;
+    max-width: 80%;
   }
+}
+
+.js-simple-slider .js-ss-sl,
+.js-simple-slider .js-ss-sl-left,
+.js-simple-slider .js-ss-sl-right {
+  filter: grayscale(100%);
 }
 
 .js-simple-slider .js-ss li {
@@ -187,7 +188,11 @@ body .js-simple-slider .js-ss-placeholder {
 }
 
 .js-simple-slider .js-ss .js-ss-sl-left, .js-simple-slider .js-ss .js-ss-sl-right {
-  opacity: 0.33;
+  opacity: 0.25;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-left:hover, .js-simple-slider .js-ss .js-ss-sl-right:hover {
+  opacity: 0.5;
 }
 
 .js-simple-slider .js-ss .js-ss-sl-current {
@@ -196,12 +201,13 @@ body .js-simple-slider .js-ss-placeholder {
 
 .js-simple-slider .js-ss img {
   transition: all 1s;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
-.js-simple-slider .js-ss .js-ss-sl-left img, .js-simple-slider .js-ss .js-ss-sl-right img {
+.js-simple-slider .js-ss .js-ss-sl-left img,
+.js-simple-slider .js-ss .js-ss-sl-right img {
   transform: scale(0.5);
-  border-radius: 50px;
+  border-radius: 40px;
 }
 
 .js-simple-slider .js-ss .js-ss-sl-left {
@@ -214,7 +220,6 @@ body .js-simple-slider .js-ss-placeholder {
 
 /* Simple slider ------------------------------------------------------------ */
 .js-simple-slider {
-  position: relative;
   width: 100%;
   overflow: hidden;
 }
@@ -268,13 +273,13 @@ body .js-simple-slider .js-ss-placeholder {
   transform: translateY(-50%);
 }
 
-.js-simple-slider .js-ss .js-ss-sl-left,
-.js-simple-slider .js-ss .js-ss-sl-right {
-  z-index: 2;
-}
-
 .js-simple-slider .js-ss .js-ss-sl {
   z-index: 1;
+}
+
+.js-simple-slider .js-ss .js-ss-sl-left, .js-simple-slider .js-ss .js-ss-sl-right {
+  z-index: 2;
+  cursor: pointer;
 }
 
 .js-simple-slider .js-ss .js-ss-sl-current {
