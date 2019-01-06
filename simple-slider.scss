@@ -277,6 +277,7 @@ body .js-simple-slider {
     .js-ss-sl { z-index: 1; }
     .js-ss-sl-left, .js-ss-sl-right {
       z-index: 2;
+      -webkit-tap-highlight-color: transparent;
       cursor: pointer;
     }
     .js-ss-sl-current { z-index: 3; }

@@ -279,6 +279,7 @@ body .js-simple-slider .js-ss-placeholder {
 
 .js-simple-slider .js-ss .js-ss-sl-left, .js-simple-slider .js-ss .js-ss-sl-right {
   z-index: 2;
+  -webkit-tap-highlight-color: transparent;
   cursor: pointer;
 }
 
