@@ -4,9 +4,19 @@
   <meta charset="UTF-8">
   <title>Simple Slider</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- SS CSS -->
   <link rel="stylesheet" href="simple-slider.css">
-  <link rel="manifest" href="manifest.json">
+  <!-- favicons and stuff -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/favicons/site.webmanifest">
+  <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#f0c401">
+  <link rel="shortcut icon" href="/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#333333">
+  <meta name="msapplication-config" content="/favicons/browserconfig.xml">
   <meta name="theme-color" content="#000000">
+  <!-- specific styles -->
   <style>
     html { height: 100%; }
     body {
@@ -17,12 +27,11 @@
       margin: 0;
       background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIBAMAAAA2IaO4AAAAD1BMVEUnJyceHh4vLy8rKysxMTFAKBbFAAAALUlEQVQI12NgEmJmYHA0VGBmEDAQYmEwYGBUZGBgMBJicGBWZGQQMRIyAosAADWPAqpWitOAAAAAAElFTkSuQmCC');
     }
-    .js-ss-spacer { height: 1rem; }
   </style>
 </head>
 <body>
+  <!-- SS HTML -->
   <div class="js-simple-slider" data-ss-delay="7500" role="region" aria-label="Simple slider">
-    <div class="js-ss-spacer" aria-hidden="true"></div>
     <ul class="js-ss">
       <li><img src="img/ss1.jpg" alt=""></li>
       <li><img src="img/ss2.jpg" alt=""></li>
@@ -34,6 +43,7 @@
     <div class="js-ss-prev" tabindex="0" aria-label="Previous slide"></div>
     <div class="js-ss-next" tabindex="0" aria-label="Next slide"></div>
   </div>
+  <!-- SS JS -->
   <script src="jquery-3.3.1.slim.min.js"></script>
   <script src="simple-slider.js"></script>
 </body>

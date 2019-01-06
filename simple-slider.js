@@ -3,15 +3,20 @@
     <ul class="js-ss">
       <li>Slide content</li>
     </ul>
+    <!-- optional -->
     <ul class="js-ss-nav" aria-hidden="true"></ul>
     <div class="js-ss-prev" tabindex="0" aria-label="Previous slide">Prev</div>
     <div class="js-ss-next" tabindex="0" aria-label="Next slide">Next</div>
   </div>
 */
 (function() {
+  // main function
   function simsl(goTo, sli, disable) {
+    // disable autorotate feature
     if (disable) clearInterval(sli.int);
+    // current position
     var pos = parseInt(sli.attr('data-ss-position') - 1);
+    // move logic and action
     if (goTo !== pos) {
       var len = parseInt(sli.attr('data-ss-length'));
       if (goTo === 9999) goTo = pos + 1;
@@ -26,48 +31,48 @@
       if (goToPrev > (len-1)) goToPrev = 0;
       if (goToPrev < 0) goToPrev = len - 1;
       $('.js-ss li', sli).each(function(index) {
-        var elm = $(this);
-        elm.removeAttr('class').attr('aria-hidden', true);
+        var li = $(this);
+        li.removeAttr('class').attr('aria-hidden', true);
         if (index === goTo) {
-          elm.addClass('js-ss-sl-current').removeAttr('aria-hidden');
+          li.addClass('js-ss-sl-current').removeAttr('aria-hidden');
           $('.js-ss-nav li', sli).removeAttr('class').eq(goTo).addClass('active');
-        } else if (index === goToNext) { elm.addClass('js-ss-sl-right');
-        } else if (index === goToPrev) { elm.addClass('js-ss-sl-left');
-        } else { elm.addClass('js-ss-sl'); }
+        } else if (index === goToNext) { li.addClass('js-ss-sl-right');
+        } else if (index === goToPrev) { li.addClass('js-ss-sl-left');
+        } else { li.addClass('js-ss-sl'); }
       });
     }
   }
-  // sliders
+  // each slider
   $('.js-simple-slider').each(function() {
     var ss = $('.js-ss', this);
-    var elm = $('li', ss);
-    var sli = $(this).attr('data-ss-position', 0).attr('data-ss-length', elm.length);
+    var li = $('li', ss);
+    var sli = $(this).attr('data-ss-position', 0).attr('data-ss-length', li.length);
     var dots = $('.js-ss-nav', this);
-    elm.each(function() { dots.append('<li></li>'); });
-    // clone (for placeholder purposes)
+    li.each(function() { dots.append('<li></li>'); });
+    // clone slider content (for placeholder purposes)
     ss.wrap('<div class="js-ss-wrap"></div>');
     ss.clone().removeClass('js-ss').addClass('js-ss-placeholder').attr('aria-hidden', true).insertAfter(ss);
-    // init
+    // init slider
     simsl(0, sli);
-    // autorotate
+    // autorotate feature
     var timer = sli.attr('data-ss-delay') || 0;
     if (timer > 0) sli.int = setInterval(function(){ simsl(9999, sli); }, timer);
-    // click prev/next image
-    elm.click(function() {
+    // click prev-next image
+    li.click(function() {
       if ($(this).hasClass('js-ss-sl-left')) simsl(-9999, sli, true);
       if ($(this).hasClass('js-ss-sl-right')) simsl(9999, sli, true);
     });
-    // click / keyboard (enter key)
+    // click prev-next button / press keyboard enter key
     $('.js-ss-next', this).click(function() { simsl(9999, sli, true); }).on('keydown', function(e) { if (e.which == 13) { simsl(9999, sli, true); } });
     $('.js-ss-prev', this).click(function() { simsl(-9999, sli, true); }).on('keydown', function(e) { if (e.which == 13) { simsl(-9999, sli, true); } });
     // click on dot
     $('li', dots).each(function(index) { $(this).click(function() { simsl(index, sli, true); }); });
-    // keyboard (left and right arrow keys)
+    // press keyboard left-right arrow keys
     $('body').on('keydown', function(e) {
       if (e.which == 39) { simsl(9999, sli, true); }
       if (e.which == 37) { simsl(-9999, sli, true); }
     });
-    // swipe (on touch devices)
+    // swipe for touch devices
     ss[0].addEventListener('touchstart', handleTouchStart, false);
     ss[0].addEventListener('touchmove', handleTouchMove, false);
     ss[0].addEventListener('touchend', handleTouchEnd, false);
