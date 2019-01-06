@@ -1,3 +1,8 @@
+/*!
+
+MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple-slider
+
+*/
 /* Navigation styles -------------------------------------------------------- */
 .js-ss-prev,
 .js-ss-next {
@@ -35,11 +40,11 @@
 
 .js-ss-prev:after {
   border-width: 8px 16px 8px 0;
-  border-color: transparent rgba(0, 0, 0, 0.66) transparent transparent;
+  border-color: transparent rgba(0, 0, 0, 0.75) transparent transparent;
 }
 
 .js-ss-prev:hover:after {
-  border-color: transparent rgba(255, 255, 255, 0.33) transparent transparent;
+  border-color: transparent rgba(255, 255, 255, 0.5) transparent transparent;
 }
 
 .js-ss-next {
@@ -48,26 +53,26 @@
 
 .js-ss-next:after {
   border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent rgba(0, 0, 0, 0.66);
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.75);
 }
 
 .js-ss-next:hover:after {
-  border-color: transparent transparent transparent rgba(255, 255, 255, 0.33);
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.5);
 }
 
 .ss-keyboard .js-ss-prev:active, .ss-keyboard .js-ss-prev:focus,
 .ss-keyboard .js-ss-next:active,
 .ss-keyboard .js-ss-next:focus {
-  outline: 2px dotted rgba(255, 255, 255, 0.33);
+  outline: 2px dotted rgba(255, 255, 255, 0.5);
   outline-offset: 1px;
 }
 
 .ss-keyboard .js-ss-prev:active:after, .ss-keyboard .js-ss-prev:focus:after {
-  border-color: transparent rgba(255, 255, 255, 0.33) transparent transparent;
+  border-color: transparent rgba(255, 255, 255, 0.5) transparent transparent;
 }
 
 .ss-keyboard .js-ss-next:active:after, .ss-keyboard .js-ss-next:focus:after {
-  border-color: transparent transparent transparent rgba(255, 255, 255, 0.33);
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.5);
 }
 
 .js-ss-nav {
@@ -95,11 +100,11 @@
 
 .js-ss-nav li:hover:after {
   transition: all 0.25s;
-  background-color: rgba(255, 255, 255, 0.33);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .js-ss-nav li.active:after {
-  background-color: rgba(255, 255, 255, 0.33);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .js-ss-nav li:after {
@@ -111,7 +116,7 @@
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.66);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 @media only screen and (max-width: 899px) {

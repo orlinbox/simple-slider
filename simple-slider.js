@@ -1,3 +1,9 @@
+/*!
+
+MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple-slider
+
+*/
+
 /*
   <div class="js-simple-slider" data-ss-delay="7500" role="region" aria-label="Simple slider">
     <ul class="js-ss">
@@ -11,6 +17,7 @@
     </div>
   </div>
 */
+
 (function() {
   // main function
   function simsl(goTo, sli, disable) {
