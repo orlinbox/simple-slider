@@ -18,4 +18,4 @@ based on JavaScript (CSS class changes) and CSS transitions
 * put the JavaScript file (require jQuery to work)
 * put the CSS (or SASS) file and modify as you wish
 
-## [DEMO](https://orlinbox.github.io/simple-slider/)
+### [SEE DEMO HERE](https://orlinbox.github.io/simple-slider/)
