@@ -17,3 +17,5 @@ based on JavaScript (CSS class changes) and CSS transitions
 * put the HTML from the JavaScript file (see the comment)
 * put the JavaScript file (require jQuery to work)
 * put the CSS (or SASS) file and modify as you wish
+
+## [DEMO](https://orlinbox.github.io/simple-slider/)
