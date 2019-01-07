@@ -1,5 +1,5 @@
-# Simple Slider
-<10k slider based on JavaScript (CSS class changes) and CSS transitions
+# Simple Slider (<10kB)
+based on JavaScript (CSS class changes) and CSS transitions
 
 ### How it works:
 * current item receives class **js-ss-sl-current**
