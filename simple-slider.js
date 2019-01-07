@@ -19,6 +19,8 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
 */
 
 (function() {
+  // elements with focus
+  var foc = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe';
   // main function
   function simsl(goTo, sli, disable) {
     // disable autorotate feature
@@ -42,8 +44,10 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
       $('.js-ss li', sli).each(function(index) {
         var li = $(this);
         li.removeAttr('class').attr('aria-hidden', true);
+        $(foc, li).attr('tabindex', -1);
         if (index === goTo) {
           li.addClass('js-ss-sl-current').removeAttr('aria-hidden');
+          $(foc, li).removeAttr('tabindex');
           $('.js-ss-nav li', sli).removeAttr('class').eq(goTo).addClass('active');
         } else if (index === goToNext) { li.addClass('js-ss-sl-right');
         } else if (index === goToPrev) { li.addClass('js-ss-sl-left');
@@ -58,9 +62,9 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
     var sli = $(this).attr('data-ss-position', 0).attr('data-ss-length', li.length);
     var dots = $('.js-ss-nav', this);
     li.each(function() { dots.append('<li></li>'); });
-    // clone slider content (for placeholder purposes)
+    // clone slider content (for placeholder purposes) and disable focus
     ss.wrap('<div class="js-ss-wrap"></div>');
-    ss.clone().removeClass('js-ss').addClass('js-ss-placeholder').attr('aria-hidden', true).insertAfter(ss);
+    $(foc, ss.clone().removeClass('js-ss').addClass('js-ss-placeholder').attr('aria-hidden', true).insertAfter(ss)).attr('tabindex', -1);
     // init slider
     simsl(0, sli);
     // autorotate feature
