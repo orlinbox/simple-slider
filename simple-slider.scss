@@ -23,39 +23,39 @@ $ss-white: rgba(255,255,255, 0.5);
     position: absolute;
     display: block;
     content: " ";
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 0;
-    height: 0;
+    top: 5px;
+    width: 9px;
+    height: 9px;
     border-style: solid;
+    border-width: 0;
+    border-color: $ss-black;
+    transform: rotate(45deg);
   }
 
-  &:active, &:focus {
+  &:hover:after {
+    border-color: $ss-white;
+  }
+
+  &:active,
+  &:focus {
     outline-width: 0;
   }
 }
 
 .js-ss-prev {
-  left: 0;
-
   &:after {
-    border-width: 8px 16px 8px 0;
-    border-color: transparent $ss-black transparent transparent;
+    left: 10px;
+    border-left-width: 5px;
+    border-bottom-width: 5px;
   }
-
-  &:hover:after { border-color: transparent $ss-white transparent transparent; }
 }
 
 .js-ss-next {
-  right: 0;
-
   &:after {
-    border-width: 8px 0 8px 16px;
-    border-color: transparent transparent transparent $ss-black;
+    right: 10px;
+    border-right-width: 5px;
+    border-top-width: 5px;
   }
-
-  &:hover:after { border-color: transparent transparent transparent $ss-white; }
 }
 
 .ss-keyboard {
@@ -68,18 +68,12 @@ $ss-white: rgba(255,255,255, 0.5);
     }
   }
 
-  .js-ss-prev {
-    &:active, &:focus {
-      &:after {
-        border-color: transparent $ss-white transparent transparent;
-      }
-    }
-  }
-
+  .js-ss-prev,
   .js-ss-next {
-    &:active, &:focus {
+    &:active,
+    &:focus {
       &:after {
-        border-color: transparent transparent transparent $ss-white;
+        border-color: $ss-white;
       }
     }
   }
@@ -88,13 +82,12 @@ $ss-white: rgba(255,255,255, 0.5);
 .js-ss-nav {
   display: inline-block;
   margin: 0;
-  padding: 10px;
+  padding: 10px 2px;
   line-height: 0;
   vertical-align: middle;
   text-align: center;
 
   li {
-    transition: all 0.25s;
     position: relative;
     display: inline-block;
     width: 10px;
@@ -102,7 +95,7 @@ $ss-white: rgba(255,255,255, 0.5);
     padding: 4px;
     margin: 4px;
     list-style: none;
-    border-radius: 5px;
+    border-radius: 3px;
     vertical-align: middle;
     cursor: pointer;
 
@@ -111,9 +104,12 @@ $ss-white: rgba(255,255,255, 0.5);
       background-color: $ss-white;
     }
 
-    &.active:after { background-color: $ss-white; }
+    &.active:after {
+      background-color: $ss-white;
+    }
 
     &:after {
+      transition: all 0.25s;
       position: absolute;
       display: block;
       content: " ";
@@ -121,7 +117,7 @@ $ss-white: rgba(255,255,255, 0.5);
       top: 0;
       width: 100%;
       height: 100%;
-      border-radius: 5px;
+      border-radius: 3px;
       background-color: $ss-black;
     }
   }
@@ -136,11 +132,16 @@ $ss-white: rgba(255,255,255, 0.5);
       height: 4px;
       padding: 2px;
       margin: 2px;
-      border-radius: 3px;
+      border-radius: 2px;
+
+      &:after {
+        border-radius: 2px;
+      }
     }
   }
 
-  .js-ss-prev, .js-ss-next {
+  .js-ss-prev,
+  .js-ss-next {
     display: none;
   }
 }

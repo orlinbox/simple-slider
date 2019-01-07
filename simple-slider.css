@@ -20,12 +20,18 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
   position: absolute;
   display: block;
   content: " ";
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
+  top: 5px;
+  width: 9px;
+  height: 9px;
   border-style: solid;
+  border-width: 0;
+  border-color: rgba(0, 0, 0, 0.75);
+  transform: rotate(45deg);
+}
+
+.js-ss-prev:hover:after,
+.js-ss-next:hover:after {
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .js-ss-prev:active, .js-ss-prev:focus,
@@ -34,30 +40,16 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
   outline-width: 0;
 }
 
-.js-ss-prev {
-  left: 0;
-}
-
 .js-ss-prev:after {
-  border-width: 8px 16px 8px 0;
-  border-color: transparent rgba(0, 0, 0, 0.75) transparent transparent;
-}
-
-.js-ss-prev:hover:after {
-  border-color: transparent rgba(255, 255, 255, 0.5) transparent transparent;
-}
-
-.js-ss-next {
-  right: 0;
+  left: 10px;
+  border-left-width: 5px;
+  border-bottom-width: 5px;
 }
 
 .js-ss-next:after {
-  border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent rgba(0, 0, 0, 0.75);
-}
-
-.js-ss-next:hover:after {
-  border-color: transparent transparent transparent rgba(255, 255, 255, 0.5);
+  right: 10px;
+  border-right-width: 5px;
+  border-top-width: 5px;
 }
 
 .ss-keyboard .js-ss-prev:active, .ss-keyboard .js-ss-prev:focus,
@@ -67,25 +59,22 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
   outline-offset: 1px;
 }
 
-.ss-keyboard .js-ss-prev:active:after, .ss-keyboard .js-ss-prev:focus:after {
-  border-color: transparent rgba(255, 255, 255, 0.5) transparent transparent;
-}
-
-.ss-keyboard .js-ss-next:active:after, .ss-keyboard .js-ss-next:focus:after {
-  border-color: transparent transparent transparent rgba(255, 255, 255, 0.5);
+.ss-keyboard .js-ss-prev:active:after, .ss-keyboard .js-ss-prev:focus:after,
+.ss-keyboard .js-ss-next:active:after,
+.ss-keyboard .js-ss-next:focus:after {
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .js-ss-nav {
   display: inline-block;
   margin: 0;
-  padding: 10px;
+  padding: 10px 2px;
   line-height: 0;
   vertical-align: middle;
   text-align: center;
 }
 
 .js-ss-nav li {
-  transition: all 0.25s;
   position: relative;
   display: inline-block;
   width: 10px;
@@ -93,7 +82,7 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
   padding: 4px;
   margin: 4px;
   list-style: none;
-  border-radius: 5px;
+  border-radius: 3px;
   vertical-align: middle;
   cursor: pointer;
 }
@@ -108,6 +97,7 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
 }
 
 .js-ss-nav li:after {
+  transition: all 0.25s;
   position: absolute;
   display: block;
   content: " ";
@@ -115,7 +105,7 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
   top: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -128,9 +118,13 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
     height: 4px;
     padding: 2px;
     margin: 2px;
-    border-radius: 3px;
+    border-radius: 2px;
   }
-  .js-ss-prev, .js-ss-next {
+  .js-ss-nav li:after {
+    border-radius: 2px;
+  }
+  .js-ss-prev,
+  .js-ss-next {
     display: none;
   }
 }

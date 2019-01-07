@@ -109,7 +109,7 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
   // keyboard focus
   function simslkey() {
     $('.js-simple-slider').addClass('ss-keyboard');
-    $('body').off('keypress', simslkey);
+    $('body').off('keydown', simslkey);
   }
-  $('body').on('keypress', simslkey);
+  $('body').on('keydown', simslkey);
 })();
