@@ -26,6 +26,7 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
   border-style: solid;
   border-width: 0;
   border-color: rgba(0, 0, 0, 0.75);
+  border-radius: 3px;
   transform: rotate(45deg);
 }
 
@@ -68,7 +69,7 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
 .js-ss-nav {
   display: inline-block;
   margin: 0;
-  padding: 10px 2px;
+  padding: 14px 2px;
   line-height: 0;
   vertical-align: middle;
   text-align: center;
@@ -78,7 +79,7 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
   position: relative;
   display: inline-block;
   width: 10px;
-  height: 7px;
+  height: 4px;
   padding: 4px;
   margin: 4px;
   list-style: none;
@@ -111,11 +112,11 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
 
 @media only screen and (max-width: 899px) {
   .js-ss-nav {
-    padding: 6px;
+    padding: 6px 4px 0 4px;
   }
   .js-ss-nav li {
     width: 6px;
-    height: 4px;
+    height: 2px;
     padding: 2px;
     margin: 2px;
     border-radius: 2px;
@@ -137,10 +138,10 @@ MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple
     position: absolute;
     display: block;
     content: " ";
-    left: -2px;
-    right: -2px;
-    top: -2px;
-    bottom: -2px;
+    left: -3px;
+    right: -3px;
+    top: -6px;
+    bottom: -6px;
     background-color: transparent;
   }
 }
