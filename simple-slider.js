@@ -2,6 +2,8 @@
 
 MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple-slider
 
+SS version 1.0
+
 */
 
 /*
