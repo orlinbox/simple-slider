@@ -206,7 +206,6 @@ body .js-simple-slider {
   .js-ss {
     li { transition: all 0.5s; }
 
-    .js-ss-sl { opacity: 0; }
     .js-ss-sl-left, .js-ss-sl-right {
       opacity: 0.25;
       &:hover { opacity: 0.5; }
@@ -284,7 +283,10 @@ body .js-simple-slider {
       transform: translateY(-50%);
     }
 
-    .js-ss-sl { z-index: 1; }
+    .js-ss-sl {
+      opacity: 0;
+      z-index: 1;
+    }
     .js-ss-sl-left, .js-ss-sl-right {
       z-index: 2;
       -webkit-tap-highlight-color: transparent;
@@ -296,5 +298,30 @@ body .js-simple-slider {
   .js-ss-wrap {
     position: relative;
     text-align: center;
+  }
+}
+
+/* no JavaScript graceful degradation - display only the first slide */
+.js-simple-slider.js-ss-nojs {
+  .js-ss {
+    position: relative;
+    height: auto;
+
+    li {
+      top: auto;
+      transform: none;
+      display: none;
+
+      &:first-child {
+        display: inline-block;
+        position: relative;
+      }
+    }
+  }
+
+  .js-ss-prev,
+  .js-ss-next,
+  .js-ss-nav {
+    display: none;
   }
 }

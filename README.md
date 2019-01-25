@@ -12,10 +12,11 @@ based on JavaScript (CSS class changes) and CSS transitions
 * keyboard navigation
 * swipe (for touch devices)
 * accessibility
+* no JavaScript graceful degradation
 
 ### How to use:
-* put the HTML from the JavaScript file (see the comment)
+* use the HTML from the JavaScript file (see the leading comment)
 * put the JavaScript file (require jQuery to work)
-* put the CSS (or SASS) file and modify as you wish
+* put the CSS (or SASS) file and modify to match your animation and style
 
 ### [SEE DEMO HERE](https://orlinbox.github.io/simple-slider/)

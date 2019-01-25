@@ -185,10 +185,6 @@ body .js-simple-slider .js-ss-placeholder {
   transition: all 0.5s;
 }
 
-.js-simple-slider .js-ss .js-ss-sl {
-  opacity: 0;
-}
-
 .js-simple-slider .js-ss .js-ss-sl-left, .js-simple-slider .js-ss .js-ss-sl-right {
   opacity: 0.25;
 }
@@ -276,6 +272,7 @@ body .js-simple-slider .js-ss-placeholder {
 }
 
 .js-simple-slider .js-ss .js-ss-sl {
+  opacity: 0;
   z-index: 1;
 }
 
@@ -292,4 +289,27 @@ body .js-simple-slider .js-ss-placeholder {
 .js-simple-slider .js-ss-wrap {
   position: relative;
   text-align: center;
+}
+
+/* no JS somewhat graceful degradation */
+.js-simple-slider.js-ss-nojs .js-ss {
+  position: relative;
+  height: auto;
+}
+
+.js-simple-slider.js-ss-nojs .js-ss li {
+  top: auto;
+  transform: none;
+  display: none;
+}
+
+.js-simple-slider.js-ss-nojs .js-ss li:first-child {
+  display: inline-block;
+  position: relative;
+}
+
+.js-simple-slider.js-ss-nojs .js-ss-prev,
+.js-simple-slider.js-ss-nojs .js-ss-next,
+.js-simple-slider.js-ss-nojs .js-ss-nav {
+  display: none;
 }

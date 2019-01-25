@@ -7,11 +7,11 @@ SS version 1.0
 */
 
 /*
-  <div class="js-simple-slider" data-ss-delay="7500" role="region" aria-label="Simple slider">
+  <div class="js-simple-slider js-ss-nojs" data-ss-delay="7500" role="region" aria-label="Simple slider">
     <ul class="js-ss">
       <li>Slide content</li>
     </ul>
-    <!-- optional -->
+    <!-- wrapper is optional, navigation elements are optional -->
     <div class="ss-nav-wrap">
       <div class="js-ss-prev" tabindex="0" aria-label="Previous slide">Prev</div>
       <ul class="js-ss-nav" aria-hidden="true"></ul>
@@ -61,7 +61,7 @@ SS version 1.0
   $('.js-simple-slider').each(function() {
     var ss = $('.js-ss', this);
     var li = $('li', ss);
-    var sli = $(this).attr('data-ss-position', 0).attr('data-ss-length', li.length);
+    var sli = $(this).removeClass('js-ss-nojs').attr('data-ss-position', 0).attr('data-ss-length', li.length);
     var dots = $('.js-ss-nav', this);
     li.each(function() { dots.append('<li></li>'); });
     // clone slider content (for placeholder purposes) and disable focus
