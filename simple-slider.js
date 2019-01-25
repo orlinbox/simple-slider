@@ -78,14 +78,14 @@ SS version 1.0
       if ($(this).hasClass('js-ss-sl-right')) simsl(9999, sli, true);
     });
     // click prev-next button / press keyboard enter key
-    $('.js-ss-next', this).click(function() { simsl(9999, sli, true); }).on('keydown', function(e) { if (e.which == 13) { simsl(9999, sli, true); } });
-    $('.js-ss-prev', this).click(function() { simsl(-9999, sli, true); }).on('keydown', function(e) { if (e.which == 13) { simsl(-9999, sli, true); } });
+    $('.js-ss-next', this).click(function() { simsl(9999, sli, true); }).on('keydown', function(e) { if (e.key == 'Enter') { simsl(9999, sli, true); } });
+    $('.js-ss-prev', this).click(function() { simsl(-9999, sli, true); }).on('keydown', function(e) { if (e.key == 'Enter') { simsl(-9999, sli, true); } });
     // click on dot
     $('li', dots).each(function(index) { $(this).click(function() { simsl(index, sli, true); }); });
     // press keyboard left-right arrow keys
     $('body').on('keydown', function(e) {
-      if (e.which == 39) { simsl(9999, sli, true); }
-      if (e.which == 37) { simsl(-9999, sli, true); }
+      if (e.key == 'ArrowLeft' || e.key == 'Left') { simsl(-9999, sli, true); }
+      if (e.key == 'ArrowRight' || e.key == 'Right') { simsl(9999, sli, true); }
     });
     // swipe for touch devices
     ss[0].addEventListener('touchstart', handleTouchStart, false);

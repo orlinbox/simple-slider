@@ -291,7 +291,7 @@ body .js-simple-slider .js-ss-placeholder {
   text-align: center;
 }
 
-/* no JS somewhat graceful degradation */
+/* no JavaScript graceful degradation - display only the first slide */
 .js-simple-slider.js-ss-nojs .js-ss {
   position: relative;
   height: auto;
