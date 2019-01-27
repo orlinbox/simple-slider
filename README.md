@@ -12,6 +12,7 @@ based on JavaScript (CSS class changes) and CSS transitions
 * keyboard navigation
 * swipe (for touch devices)
 * accessibility
+* no flexbox
 * no JavaScript graceful degradation
 
 ### How to use:
