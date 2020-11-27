@@ -135,7 +135,7 @@ SS version 3.0
       }
       const handleTouchEnd = (e) => {
         if (startEl !== e.target) return;
-        const swipeThreshold = 15; // px
+        const swipeThreshold = 20; // px
         const swipeTimeout = 500; // ms
         if (Math.abs(xDiff) > swipeThreshold && (Date.now() - timeDown) < swipeTimeout) simsl((xDiff > 0) ? 9999 : -9999, sli, true);
       }

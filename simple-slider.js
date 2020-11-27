@@ -175,7 +175,7 @@ SS version 3.0
 
       var handleTouchEnd = function handleTouchEnd(e) {
         if (startEl !== e.target) return;
-        var swipeThreshold = 15; // px
+        var swipeThreshold = 20; // px
 
         var swipeTimeout = 500; // ms
 
