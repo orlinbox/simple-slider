@@ -1,9 +1,6 @@
 /*!
-
-MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple-slider
-
-SS version 1.0
-
+MIT License | Copyright (c) 2021 | orlinbox | https://github.com/orlinbox/simple-slider
+SS version 3.0
 */
 /* Navigation styles -------------------------------------------------------- */
 .js-ss-prev,
@@ -291,25 +288,39 @@ body .js-simple-slider .js-ss-placeholder {
   text-align: center;
 }
 
-/* no JavaScript graceful degradation - display only the first slide */
-.js-simple-slider.js-ss-nojs .js-ss {
+/* "no JavaScript" graceful degradation - display only the first slide or less than 3 slides */
+.js-simple-slider.js-ss-nojs .js-ss,
+.js-simple-slider.js-ss-inactive .js-ss {
   position: relative;
   height: auto;
 }
 
-.js-simple-slider.js-ss-nojs .js-ss li {
+.js-simple-slider.js-ss-nojs .js-ss li,
+.js-simple-slider.js-ss-inactive .js-ss li {
   top: auto;
   transform: none;
   display: none;
 }
 
-.js-simple-slider.js-ss-nojs .js-ss li:first-child {
+.js-simple-slider.js-ss-nojs .js-ss li:first-child, .js-simple-slider.js-ss-nojs .js-ss li:nth-child(2),
+.js-simple-slider.js-ss-inactive .js-ss li:first-child,
+.js-simple-slider.js-ss-inactive .js-ss li:nth-child(2) {
   display: inline-block;
   position: relative;
 }
 
+.js-simple-slider.js-ss-nojs .js-ss li:nth-child(2),
+.js-simple-slider.js-ss-inactive .js-ss li:nth-child(2) {
+  margin-top: 2em;
+}
+
+.js-simple-slider.js-ss-nojs .ss-nav-wrap,
 .js-simple-slider.js-ss-nojs .js-ss-prev,
 .js-simple-slider.js-ss-nojs .js-ss-next,
-.js-simple-slider.js-ss-nojs .js-ss-nav {
+.js-simple-slider.js-ss-nojs .js-ss-nav,
+.js-simple-slider.js-ss-inactive .ss-nav-wrap,
+.js-simple-slider.js-ss-inactive .js-ss-prev,
+.js-simple-slider.js-ss-inactive .js-ss-next,
+.js-simple-slider.js-ss-inactive .js-ss-nav {
   display: none;
 }

@@ -1,9 +1,6 @@
 /*!
-
-MIT License | Copyright (c) 2019 | orlinbox | https://github.com/orlinbox/simple-slider
-
-SS version 1.0
-
+MIT License | Copyright (c) 2021 | orlinbox | https://github.com/orlinbox/simple-slider
+SS version 3.0
 */
 
 /* Navigation styles -------------------------------------------------------- */
@@ -301,8 +298,9 @@ body .js-simple-slider {
   }
 }
 
-/* no JavaScript graceful degradation - display only the first slide */
-.js-simple-slider.js-ss-nojs {
+/* "no JavaScript" graceful degradation - display only the first slide or less than 3 slides */
+.js-simple-slider.js-ss-nojs,
+.js-simple-slider.js-ss-inactive {
   .js-ss {
     position: relative;
     height: auto;
@@ -312,13 +310,19 @@ body .js-simple-slider {
       transform: none;
       display: none;
 
-      &:first-child {
+      &:first-child,
+      &:nth-child(2) {
         display: inline-block;
         position: relative;
+      }
+
+      &:nth-child(2) {
+        margin-top: 2em;
       }
     }
   }
 
+  .ss-nav-wrap,
   .js-ss-prev,
   .js-ss-next,
   .js-ss-nav {

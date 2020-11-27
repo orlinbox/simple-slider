@@ -2,10 +2,10 @@
 based on JavaScript (CSS class changes) and CSS transitions
 
 ### How it works:
-* current item receives class **js-ss-sl-current**
-* previous item receives class **js-ss-sl-left**
-* next item receives class **js-ss-sl-right**
-* all other items receives class **js-ss-sl**
+* current item class **js-ss-sl-current**
+* previous item class **js-ss-sl-left**
+* next item class **js-ss-sl-right**
+* other items class **js-ss-sl**
 
 ### Features:
 * autorotate (optional)
@@ -13,11 +13,10 @@ based on JavaScript (CSS class changes) and CSS transitions
 * swipe (for touch devices)
 * accessibility
 * no flexbox
-* no JavaScript graceful degradation
+* "no JavaScript" graceful degradation
 
 ### How to use:
 * use the HTML from the JavaScript file (see the leading comment)
-* put the JavaScript file (require jQuery to work)
-* put the CSS (or SASS) file and modify to match your animation and style
+* put the CSS (or SASS) file and modify to match your style
 
 ### [SEE DEMO HERE](https://orlinbox.github.io/simple-slider/)
