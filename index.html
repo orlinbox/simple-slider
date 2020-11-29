@@ -28,6 +28,19 @@
       background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIBAMAAAA2IaO4AAAAD1BMVEUnJyceHh4vLy8rKysxMTFAKBbFAAAALUlEQVQI12NgEmJmYHA0VGBmEDAQYmEwYGBUZGBgMBJicGBWZGQQMRIyAosAADWPAqpWitOAAAAAAElFTkSuQmCC');
     }
     ::selection { background: transparent; }
+    .ss-keyboard .js-ss-prev:active,
+    .ss-keyboard .js-ss-prev:focus,
+    .ss-keyboard .js-ss-next:active,
+    .ss-keyboard .js-ss-next:focus {
+      outline: 2px dotted rgba(255, 255, 255, 0.5);
+      outline-offset: 1px;
+    }
+    .ss-keyboard .js-ss-prev:active:after,
+    .ss-keyboard .js-ss-prev:focus:after,
+    .ss-keyboard .js-ss-next:active:after,
+    .ss-keyboard .js-ss-next:focus:after {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
   </style>
   <!-- SS CSS -->
   <link rel="stylesheet" href="simple-slider.css">
@@ -50,5 +63,15 @@
   </div>
   <!-- SS JS -->
   <script src="simple-slider.js"></script>
+  <!-- JS for demo -->
+  <script>
+    var ssKeyboard = function ssKeyboard() {
+      document.querySelectorAll('.js-simple-slider').forEach(function (item) {
+        return item.classList.add('ss-keyboard');
+      });
+      document.body.removeEventListener('keydown', ssKeyboard);
+    };
+    document.body.addEventListener('keydown', ssKeyboard);
+  </script>
 </body>
 </html>
