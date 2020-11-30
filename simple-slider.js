@@ -6,7 +6,7 @@ SS version 3.0
 */
 (function () {
   /*
-    <div class="js-simple-slider js-ss-nojs" data-ss-delay="7500" role="region" aria-label="Simple slider">
+    <div class="js-simple-slider js-ss-nojs" data-ss-delay="7500" role="region" aria-label="Slider">
       <ul class="js-ss">
         <li>Slide content 1</li>
         <li>Slide content 2</li>
@@ -93,9 +93,13 @@ SS version 3.0
         slider.setAttribute('data-ss-position', 0);
         slider.setAttribute('data-ss-length', totalSlides);
         var dotsForNavigation = slider.querySelector('.js-ss-nav') || false;
-        if (dotsForNavigation) li.forEach(function () {
-          return dotsForNavigation.innerHTML += '<li></li>';
-        }); // wrap and clone slider content (for placeholder purposes) with disabled focus
+
+        if (dotsForNavigation) {
+          li.forEach(function () {
+            dotsForNavigation.innerHTML += '<li></li>';
+          });
+        } // wrap and clone slider content (for placeholder purposes) with disabled focus
+
 
         var wrapperEl = document.createElement('div');
         wrapperEl.classList.add('js-ss-wrap');
@@ -113,9 +117,14 @@ SS version 3.0
         window.ss.action(0, slider); // autorotate feature
 
         var timer = slider.getAttribute('data-ss-delay') || 0;
-        if (timer > 0) slider.ssTimer = setInterval(function () {
-          return window.ss.action(999, slider);
-        }, timer); // click prev-next image
+
+        if (timer > 0) {
+          var sliderElement = slider;
+          sliderElement.ssTimer = setInterval(function () {
+            return window.ss.action(999, slider);
+          }, timer);
+        } // click prev-next image
+
 
         li.forEach(function (item) {
           return item.addEventListener('click', function (elm) {
@@ -180,7 +189,9 @@ SS version 3.0
 
           var swipeTimeout = 500; // ms
 
-          if (Math.abs(xDiff) > swipeThreshold && Date.now() - timeDown < swipeTimeout) window.ss.action(xDiff > 0 ? 999 : -999, slider, true);
+          if (Math.abs(xDiff) > swipeThreshold && Date.now() - timeDown < swipeTimeout) {
+            window.ss.action(xDiff > 0 ? 999 : -999, slider, true);
+          }
         };
 
         ss.addEventListener('touchstart', handleTouchStart, false);

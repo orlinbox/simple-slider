@@ -4,7 +4,7 @@ SS version 3.0
 */
 (() => {
   /*
-    <div class="js-simple-slider js-ss-nojs" data-ss-delay="7500" role="region" aria-label="Simple slider">
+    <div class="js-simple-slider js-ss-nojs" data-ss-delay="7500" role="region" aria-label="Slider">
       <ul class="js-ss">
         <li>Slide content 1</li>
         <li>Slide content 2</li>
@@ -66,7 +66,7 @@ SS version 3.0
         }
       });
     }
-  }
+  };
   window.ss.init = () => {
     // each slider
     document.querySelectorAll('.js-simple-slider:not(.js-processed)').forEach((slider) => {
@@ -81,7 +81,11 @@ SS version 3.0
         slider.setAttribute('data-ss-position', 0);
         slider.setAttribute('data-ss-length', totalSlides);
         const dotsForNavigation = slider.querySelector('.js-ss-nav') || false;
-        if (dotsForNavigation) li.forEach(() => dotsForNavigation.innerHTML += '<li></li>');
+        if (dotsForNavigation) {
+          li.forEach(() => {
+            dotsForNavigation.innerHTML += '<li></li>';
+          });
+        }
         // wrap and clone slider content (for placeholder purposes) with disabled focus
         const wrapperEl = document.createElement('div');
         wrapperEl.classList.add('js-ss-wrap');
@@ -97,7 +101,10 @@ SS version 3.0
         window.ss.action(0, slider);
         // autorotate feature
         const timer = slider.getAttribute('data-ss-delay') || 0;
-        if (timer > 0) slider.ssTimer = setInterval(() => window.ss.action(999, slider), timer);
+        if (timer > 0) {
+          const sliderElement = slider;
+          sliderElement.ssTimer = setInterval(() => window.ss.action(999, slider), timer);
+        }
         // click prev-next image
         li.forEach((item) => item.addEventListener('click', (elm) => {
           if (elm.currentTarget.classList.contains('js-ss-sl-left')) window.ss.action(-999, slider, true);
@@ -107,12 +114,12 @@ SS version 3.0
         const nextBtn = slider.querySelector('.js-ss-next') || false;
         if (nextBtn) {
           nextBtn.addEventListener('click', () => window.ss.action(999, slider, true));
-          nextBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter') window.ss.action(999, slider, true) });
+          nextBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter') window.ss.action(999, slider, true); });
         }
         const prevBtn = slider.querySelector('.js-ss-prev') || false;
         if (prevBtn) {
           prevBtn.addEventListener('click', () => window.ss.action(-999, slider, true));
-          prevBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter') window.ss.action(-999, slider, true) });
+          prevBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter') window.ss.action(-999, slider, true); });
         }
         // click on navigation dot
         if (dotsForNavigation) dotsForNavigation.querySelectorAll('li').forEach((elm, index) => elm.addEventListener('click', () => window.ss.action(index, slider, true)));
@@ -120,7 +127,7 @@ SS version 3.0
         document.body.addEventListener('keydown', (e) => {
           if (e.key === 'ArrowLeft' || e.key === 'Left') window.ss.action(-999, slider, true);
           if (e.key === 'ArrowRight' || e.key === 'Right') window.ss.action(999, slider, true);
-        })
+        });
         // swipe for touch devices
         let xDown = null;
         let xDiff = null;
@@ -131,16 +138,18 @@ SS version 3.0
           timeDown = Date.now();
           xDown = e.touches[0].clientX;
           xDiff = 0;
-        }
+        };
         const handleTouchMove = (e) => {
           xDiff = xDown - e.touches[0].clientX;
-        }
+        };
         const handleTouchEnd = (e) => {
           if (startEl !== e.target) return;
           const swipeThreshold = 20; // px
           const swipeTimeout = 500; // ms
-          if (Math.abs(xDiff) > swipeThreshold && (Date.now() - timeDown) < swipeTimeout) window.ss.action((xDiff > 0) ? 999 : -999, slider, true);
-        }
+          if (Math.abs(xDiff) > swipeThreshold && (Date.now() - timeDown) < swipeTimeout) {
+            window.ss.action((xDiff > 0) ? 999 : -999, slider, true);
+          }
+        };
         ss.addEventListener('touchstart', handleTouchStart, false);
         ss.addEventListener('touchmove', handleTouchMove, false);
         ss.addEventListener('touchend', handleTouchEnd, false);
@@ -150,7 +159,7 @@ SS version 3.0
         slider.classList.add('js-ss-inactive');
       }
     });
-  }
+  };
   // init when DOM is ready
   document.addEventListener('DOMContentLoaded', () => window.ss.init());
 })();
